@@ -1,0 +1,12 @@
+# KDE Config File  
+[Desktop Entry]
+Type=Application
+Exec=katalysator2 -caption "%c" %i %m  
+Icon=katalysator2.png
+MiniIcon=katalysator2.png
+DocPath=katalysator2/index.html
+Comment=
+Comment[de]=
+Terminal=0
+Name=Katalysator2
+Name[de]=Katalysator2

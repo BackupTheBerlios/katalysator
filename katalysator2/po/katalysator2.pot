@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2001-06-18 01:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: katalysator2.cpp:70
+msgid "New &Window"
+msgstr ""
+
+#: katalysator2.cpp:85
+msgid "New &Pipe"
+msgstr ""
+
+#: katalysator2.cpp:87
+msgid "Opens a new application window"
+msgstr ""
+
+#: katalysator2.cpp:88
+msgid "Creates a new document"
+msgstr ""
+
+#: katalysator2.cpp:89
+msgid "Opens an existing document"
+msgstr ""
+
+#: katalysator2.cpp:90
+msgid "Opens a recently used file"
+msgstr ""
+
+#: katalysator2.cpp:91
+msgid "Saves the actual document"
+msgstr ""
+
+#: katalysator2.cpp:92
+msgid "Saves the actual document as..."
+msgstr ""
+
+#: katalysator2.cpp:93
+msgid "Closes the actual document"
+msgstr ""
+
+#: katalysator2.cpp:94
+msgid "Prints out the actual document"
+msgstr ""
+
+#: katalysator2.cpp:95
+msgid "Quits the application"
+msgstr ""
+
+#: katalysator2.cpp:96
+msgid "Cuts the selected section and puts it to the clipboard"
+msgstr ""
+
+#: katalysator2.cpp:97
+msgid "Copies the selected section to the clipboard"
+msgstr ""
+
+#: katalysator2.cpp:98
+msgid "Pastes the clipboard contents to actual position"
+msgstr ""
+
+#: katalysator2.cpp:99
+msgid "Enables/disables the toolbar"
+msgstr ""
+
+#: katalysator2.cpp:100
+msgid "Enables/disables the statusbar"
+msgstr ""
+
+#: katalysator2.cpp:101
+msgid "Adds a new pipe on the desktop"
+msgstr ""
+
+#: katalysator2.cpp:114 katalysator2.cpp:142 katalysator2.cpp:263
+#: katalysator2.cpp:281 katalysator2.cpp:304 katalysator2.cpp:321
+#: katalysator2.cpp:330 katalysator2.cpp:346 katalysator2.cpp:355
+#: katalysator2.cpp:368 katalysator2.cpp:388 katalysator2.cpp:395
+#: katalysator2.cpp:402 katalysator2.cpp:409 katalysator2.cpp:426
+#: katalysator2.cpp:443
+msgid "Ready."
+msgstr ""
+
+#: katalysator2.cpp:138 katalysator2.cpp:286 katalysator2.cpp:309
+msgid "Opening file..."
+msgstr ""
+
+#: katalysator2.cpp:258
+msgid "Opening a new application window..."
+msgstr ""
+
+#: katalysator2.cpp:268
+msgid "Creating new document..."
+msgstr ""
+
+#: katalysator2.cpp:296 katalysator2.cpp:338
+msgid "*|All files"
+msgstr ""
+
+#: katalysator2.cpp:296
+msgid "Open File..."
+msgstr ""
+
+#: katalysator2.cpp:326
+msgid "Saving file..."
+msgstr ""
+
+#: katalysator2.cpp:335
+msgid "Saving file with a new filename..."
+msgstr ""
+
+#: katalysator2.cpp:351
+msgid "Closing file..."
+msgstr ""
+
+#: katalysator2.cpp:360
+msgid "Printing..."
+msgstr ""
+
+#: katalysator2.cpp:373
+msgid "Exiting..."
+msgstr ""
+
+#: katalysator2.cpp:393
+msgid "Cutting selection..."
+msgstr ""
+
+#: katalysator2.cpp:400
+msgid "Copying selection to clipboard..."
+msgstr ""
+
+#: katalysator2.cpp:407
+msgid "Inserting clipboard contents..."
+msgstr ""
+
+#: katalysator2.cpp:414
+msgid "Toggling toolbar..."
+msgstr ""
+
+#: katalysator2.cpp:431
+msgid "Toggle the statusbar..."
+msgstr ""
+
+#: katalysator2doc.cpp:90
+msgid ""
+"The current file has been modified.\n"
+"Do you want to save it?"
+msgstr ""
+
+#: main.cpp:25 main.cpp:39
+msgid "Katalysator2"
+msgstr ""
+
+#: main.cpp:31
+msgid "file to open"
+msgstr ""
+
+#: krohr.cpp:37 rc.cpp:2
+msgid "MyDialog1"
+msgstr ""
+
+#: krohr.cpp:55 rc.cpp:6
+msgid "diameter [mm]"
+msgstr ""
+
+#: krohr.cpp:60 rc.cpp:7
+msgid "lenght [mm]"
+msgstr ""
+
+#: krohr.cpp:65 rc.cpp:8
+msgid "wall thickness [mm]"
+msgstr ""
+
+#: krohr.cpp:82 rc.cpp:9
+msgid "name"
+msgstr ""
+
+#: krohr.cpp:94 rc.cpp:5
+msgid "geometry"
+msgstr ""
+
+#: krohr.cpp:102 rc.cpp:11
+msgid "heat conductivity [kJ/(mK)]"
+msgstr ""
+
+#: krohr.cpp:107 rc.cpp:12
+msgid "density [kg/m³]"
+msgstr ""
+
+#: krohr.cpp:112 rc.cpp:13
+msgid "price per mass [EURO/kg]"
+msgstr ""
+
+#: krohr.cpp:117 rc.cpp:14
+msgid "heat capacity [kJ/kgK]"
+msgstr ""
+
+#: krohr.cpp:136 rc.cpp:10
+msgid "physical data"
+msgstr ""
+
+#: krohr.cpp:144 rc.cpp:16
+msgid "heat capacity [kJ/K]"
+msgstr ""
+
+#: krohr.cpp:149 rc.cpp:17
+msgid "Price [EURO]"
+msgstr ""
+
+#: krohr.cpp:154 rc.cpp:18
+msgid "mass [kg]"
+msgstr ""
+
+#: krohr.cpp:181 rc.cpp:15
+msgid "results"
+msgstr ""
+
+#: krohr.cpp:196 rc.cpp:20
+msgid "&Apply"
+msgstr ""
+
+#: katalysator2.moc.cpp:42 katalysator2.moc.cpp:47
+msgid "Katalysator2App"
+msgstr ""
+
+#: katalysator2doc.moc.cpp:42 katalysator2doc.moc.cpp:47
+msgid "Katalysator2Doc"
+msgstr ""
+
+#: krohr_view.moc.cpp:42 krohr_view.moc.cpp:47
+msgid "KRohr_View"
+msgstr ""
+
+#: katalysator2view.moc.cpp:42 katalysator2view.moc.cpp:47
+msgid "Katalysator2View"
+msgstr ""
+
+#: krohr_impl.moc.cpp:42 krohr_impl.moc.cpp:47
+msgid "KRohr_Impl"
+msgstr ""
+
+#: _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Your names"
+msgstr ""
+
+#: _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"Your emails"
+msgstr ""

@@ -1,0 +1,4 @@
+gmake[2]: Entering directory `/home/holger/katalysator2/katalysator2'
+/opt/kde/include/kde.pot: Warnung: Zeichensatz »CHARSET« ist ein nicht portabler Kodierungsname
+                          Warnung: Konvertierung des Zeichensatzes könnte fehlschlagen
+gmake[2]: Leaving directory `/home/holger/katalysator2/katalysator2'
