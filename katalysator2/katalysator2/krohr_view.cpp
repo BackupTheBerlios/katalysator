@@ -24,7 +24,7 @@ KRohr_View::KRohr_View(QWidget *parent, const char *name ) : QWidget(parent,name
 	kontext=new KRohr_Impl(rohr);
   connect(kontext->buttonApply, SIGNAL(clicked()), SLOT(PaintEvent()));
   connect(kontext->buttonOk, SIGNAL(clicked()), SLOT(PaintEvent()));
-	kontext->show();
+//	kontext->show();
 }
 
 KRohr_View::KRohr_View(Trohr* r, QWidget *parent, const char *name ) : QWidget(parent,name) {
@@ -33,7 +33,7 @@ KRohr_View::KRohr_View(Trohr* r, QWidget *parent, const char *name ) : QWidget(p
 	kontext=new KRohr_Impl(rohr);
   connect(kontext->buttonApply, SIGNAL(clicked()), SLOT(PaintEvent()));
   connect(kontext->buttonOk, SIGNAL(clicked()), SLOT(PaintEvent()));
-	kontext->show();
+//	kontext->show();
 }
 
 KRohr_View::~KRohr_View(){

@@ -36,6 +36,10 @@
 // global C++ headers
 #include <vector.h>
 
+// Typdefinitionen
+
+typedef vector<Tkatbasis*> TWerte;
+
 // forward declaration of the Katalysator2 classes
 class Katalysator2View;
 
@@ -84,6 +88,8 @@ class Katalysator2Doc : public QObject
 	  void setURL(const KURL& url);
   /** Erzeugt ein Neues Objekt vom Typ Trohr und gibt es zurück */
   Trohr * NewPipe();
+  /** Gibt eine Referenz auf die verwendeten Rohre, Kats zurück */
+  TWerte & getWerte(void);
 	
   public slots:
     /** calls repaint() on all views connected to the document object and is called by the view by which the document has been changed.
@@ -99,7 +105,7 @@ class Katalysator2Doc : public QObject
     /** the modified flag of the current document */
     bool modified;
     KURL doc_url;
-    vector<Tkatbasis*> Werte;
+    TWerte Werte;
 private: // Private methods
   /** Speichert den bergebenen Wert ab */
   void speichere_Werte(Tkatbasis * in);

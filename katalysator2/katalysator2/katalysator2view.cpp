@@ -24,6 +24,7 @@
 #include "katalysator2doc.h"
 #include "katalysator2.h"
 #include "krohr_view.h"
+#include <algorithm>
 
 Katalysator2View::Katalysator2View(QWidget *parent, const char *name) : QWidget(parent, name)
 {
@@ -50,14 +51,38 @@ void Katalysator2View::print(QPrinter *pPrinter)
 
   printpainter.end();
 }
-/** Creates a new View of KRohr */
+
+/** Creates a new View of KRohr_View */
 void Katalysator2View::NewPipe(Trohr * r1){
   KRohr_View * r = new KRohr_View(r1,this);
-  objekte->append(r);
+  objekte.append(r);
   r->show();
-	
 }
+
 /** Clears the window */
 void Katalysator2View::clear_screan(void){
-	objekte->clear();
+  QWidget ** it;
+  for(it=objekte.begin(); it!=objekte.end();it++){
+  	delete it;
+  	}
+
+	objekte.clear();
+}
+/** Neu zeichnen der Arbeitsberfläche */
+void Katalysator2View::paintEvent(){
+	clear_screan();
+	Katalysator2Doc *doc;
+	doc=getDocument();
+	TWerte werte=doc->getWerte();
+	Tkatbasis** it;	
+	for (it=werte.begin(); it!=werte.end(); it++){
+		if(Trohr* in=dynamic_cast<Trohr*>(*it)){
+			NewPipe(in);
+		}
+		else{
+			cerr<<"No TRohr!"<<endl;
+		}	
+			
+cerr<<" paintEvent finished!"<< endl;		
+	};
 }

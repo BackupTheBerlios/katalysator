@@ -46,6 +46,7 @@ class Katalysator2Doc;
  */
 class Katalysator2View : public QWidget
 {
+
   Q_OBJECT
   public:
     /** Constructor for the main view */
@@ -67,11 +68,13 @@ class Katalysator2View : public QWidget
 //  void clear_objekte(void) {objekte.clear();}
 	
   private:
-  QList<QWidget> *objekte;
+  QList<QWidget> objekte;
 	
 public slots: // Public slots
   /** Clears the window */
   void clear_screan(void);
+  /** Neu zeichnen der Arbeitsberfläche */
+  void paintEvent();
 };
 
 #endif // KATALYSATOR2VIEW_H

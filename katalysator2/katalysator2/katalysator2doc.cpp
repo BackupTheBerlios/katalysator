@@ -148,7 +148,7 @@ bool Katalysator2Doc::newDocument()
   /////////////////////////////////////////////////
   modified=false;
   doc_url.setFileName(i18n("Untitled"));
-
+	slotUpdateAllViews(0);
   return true;
 }
 
@@ -190,7 +190,8 @@ void Katalysator2Doc::deleteContents()
 {
   /////////////////////////////////////////////////
   // TODO: Add implementation to delete the document contents
-  Werte.clear();
+ Werte.clear();
+
   /////////////////////////////////////////////////
 
 }
@@ -205,3 +206,7 @@ Trohr * Katalysator2Doc::NewPipe(){
 //void Katalysator2Doc::speichere_Werte(Tkatbasis * in){
 //	in->speichere();
 //}
+/** Gibt eine Referenz auf die verwendeten Rohre, Kats zurück */
+TWerte & Katalysator2Doc::getWerte(void){
+	return Werte;
+}

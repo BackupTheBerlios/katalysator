@@ -456,7 +456,7 @@ void Katalysator2App::slotStatusMsg(const QString &text)
 void Katalysator2App::slotNewPipe(void)
 {
 	Trohr * r = doc->NewPipe();
-	view->NewPipe(r);
+	view->paintEvent();
 }
 
 /** To configure the Toolbars */
