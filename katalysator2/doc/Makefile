@@ -1,8 +1,8 @@
 # Generated automatically from Makefile.in by config.pl.
-# KDE tags expanded automatically by am_edit - $Revision: 1.2 $ 
-# Makefile.in generated automatically by automake 1.4 from Makefile.am
+# KDE tags expanded automatically by am_edit - $Revision: 1.3 $ 
+# Makefile.in generated automatically by automake 1.4-p5 from Makefile.am
 
-# Copyright (C) 1994, 1995-8, 1999 Free Software Foundation, Inc.
+# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
 # This Makefile.in is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
 # with or without modifications, as long as this notice is preserved.
@@ -20,7 +20,7 @@ SHELL = /bin/sh
 srcdir = .
 top_srcdir = ..
 VPATH = .
-prefix = /opt/kde
+prefix = /opt/kde2
 exec_prefix = ${prefix}
 #>- 
 bindir = ${exec_prefix}/bin
@@ -144,7 +144,7 @@ MICO_INCLUDES = @MICO_INCLUDES@
 MICO_LDFLAGS = @MICO_LDFLAGS@
 MOC = /usr/lib/qt2//bin/moc
 MSGFMT = /usr/bin/msgfmt
-NOOPT_CXXFLAGS =  -fno-exceptions -fno-check-new -Wall -pedantic -W -Wpointer-arith -Wmissing-prototypes -Wwrite-strings -Wno-long-long -Wnon-virtual-dtor -fno-builtin
+NOOPT_CXXFLAGS =  -fno-exceptions -fno-check-new -Wall -pedantic -W -Wpointer-arith -Wmissing-prototypes -Wwrite-strings -Wno-long-long -Wnon-virtual-dtor -fno-builtin -g3 -Wall -g3 -I/usr/include/pgsql
 NOREPO = -fno-repo
 OBJDUMP = @OBJDUMP@
 OBJEXT = o
@@ -186,8 +186,8 @@ kde_htmldir = ${prefix}/share/doc/HTML
 kde_icondir = ${prefix}/share/icons
 kde_includes = /opt/kde2/include
 kde_libraries = /opt/kde2/lib
-kde_libs_htmldir = /opt/kde2/share/doc/HTML
-kde_libs_prefix = /opt/kde2
+kde_libs_htmldir = /opt/kde2//share/doc/HTML
+kde_libs_prefix = /opt/kde2/
 kde_locale = ${prefix}/share/locale
 kde_mimedir = ${prefix}/share/mimelnk
 kde_moduledir = ${prefix}/lib/kde2
@@ -264,7 +264,7 @@ maintainer-clean-recursive:
 	dot_seen=no; \
 	rev=''; list='$(SUBDIRS)'; for subdir in $$list; do \
 	  rev="$$subdir $$rev"; \
-	  test "$$subdir" = "." && dot_seen=yes; \
+	  test "$$subdir" != "." || dot_seen=yes; \
 	done; \
 	test "$$dot_seen" = "no" && rev=". $$rev"; \
 	target=`echo $@ | sed s/-recursive//`; \

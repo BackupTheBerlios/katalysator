@@ -40,8 +40,8 @@ available_tags=" CXX"
 # Libtool was configured as follows, on host linux:
 #
 # AR="" AR_FLAGS="" LTCC="gcc" CC="gcc" \
-# CFLAGS="-O0" CPPFLAGS="" \
-# MAGIC_CMD="" LD="/usr/i486-suse-linux/bin/ld" LDFLAGS="" LIBS="" \
+# CFLAGS="-O0  -O0 -g3 -Wall   -g3 -O0 -I/usr/include/pgsql " CPPFLAGS="" \
+# MAGIC_CMD="" LD="/usr/i486-suse-linux/bin/ld" LDFLAGS="  -lpq++ " LIBS="" \
 # LN_S="ln -s" NM="/usr/bin/nm -B" RANLIB="ranlib" STRIP="strip" \
 # AS="" DLLTOOL="" OBJDUMP="" \
 # objext="" exeext="" reload_flag=" -r" \
@@ -5372,8 +5372,8 @@ build_old_libs=`case $build_libtool_libs in yes) echo no;; *) echo yes;; esac`
 # Libtool was configured as follows, on host linux:
 #
 # AR="" AR_FLAGS="" LTCC="gcc" CC="g++" \
-# CFLAGS="-O0 -fno-exceptions -fno-check-new -Wall -pedantic -W -Wpointer-arith -Wmissing-prototypes -Wwrite-strings -Wno-long-long -Wnon-virtual-dtor -fno-builtin" CPPFLAGS="" \
-# MAGIC_CMD="" LD="/usr/i486-suse-linux/bin/ld" LDFLAGS="" LIBS="" \
+# CFLAGS="-O0 -fno-exceptions -fno-check-new -Wall -pedantic -W -Wpointer-arith -Wmissing-prototypes -Wwrite-strings -Wno-long-long -Wnon-virtual-dtor -fno-builtin -O0 -g3 -Wall -g3 -O0 -I/usr/include/pgsql" CPPFLAGS="" \
+# MAGIC_CMD="" LD="/usr/i486-suse-linux/bin/ld" LDFLAGS="  -lpq++ " LIBS="" \
 # LN_S="ln -s" NM="/usr/bin/nm -B" RANLIB="ranlib" STRIP="strip" \
 # AS="" DLLTOOL="" OBJDUMP="" \
 # objext="" exeext="" reload_flag=" -r" \

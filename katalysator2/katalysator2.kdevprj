@@ -17,21 +17,21 @@ install_location=
 type=DATA
 
 [Config for BinMakefileAm]
-addcxxflags=-g3 -O0
+addcxxflags=-g3 -O0 -I/usr/include/pgsql
 bin_program=katalysator2
 cxxflags=\s-O0 -g3 -Wall
-ldadd=\s-lkfile -lkdeui -lkdecore $(LIB_QT)
-ldflags=
+ldadd=\s$(LIB_KFILE) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT)
+ldflags=-lpq++
 
 [General]
-AMChanged=false
+AMChanged=true
 author=Holger Stock
 configure_args=--with-qt-dir=/usr/lib/qt-2.3.0 --prefix=/opt/kde2
 email=hstock@users.berlios.de
 kdevprj_version=1.3
-lfv_open_groups=Andere,Benutzerschnittstelle,GNU,Header,Übersetzungen
-make_options=\s-j1
-makefiles=Makefile.am,katalysator2/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am
+lfv_open_groups=Andere,Benutzerschnittstelle,GNU,Header,Quellen
+make_options=\s-k -j1
+makefiles=Makefile.am,katalysator2/Makefile.am,doc/Makefile.am,doc/en/Makefile.am,po/Makefile.am,katalysator2/sql/Makefile.am
 modifyMakefiles=true
 project_name=Katalysator2
 project_type=normal_kde2
@@ -111,8 +111,8 @@ install_location=
 type=DATA
 
 [katalysator2/Makefile.am]
-files=katalysator2/main.cpp,katalysator2/katalysator2.cpp,katalysator2/katalysator2.h,katalysator2/katalysator2doc.cpp,katalysator2/katalysator2doc.h,katalysator2/katalysator2view.cpp,katalysator2/katalysator2view.h,katalysator2/katalysator2ui.rc,katalysator2/katalysator2.desktop,katalysator2/lo32-app-katalysator2.png,katalysator2/lo16-app-katalysator2.png,katalysator2/krohr.ui,katalysator2/krohr_impl.cpp,katalysator2/krohr_impl.h,katalysator2/krohr_view.cpp,katalysator2/krohr_view.h,katalysator2/tedelmetall.cpp,katalysator2/tedelmetall.h,katalysator2/tkatbasis.cpp,katalysator2/tkatbasis.h,katalysator2/tkegelschnitt.cpp,katalysator2/tkegelschnitt.h,katalysator2/tkonus.cpp,katalysator2/tkonus.h,katalysator2/tmatrix.cpp,katalysator2/tmatrix.h,katalysator2/trohr.cpp,katalysator2/trohr.h,katalysator2/twerkstoff.cpp,katalysator2/twerkstoff.h,katalysator2/definitions.h
-sub_dirs=
+files=katalysator2/main.cpp,katalysator2/katalysator2.cpp,katalysator2/katalysator2.h,katalysator2/katalysator2doc.cpp,katalysator2/katalysator2doc.h,katalysator2/katalysator2view.cpp,katalysator2/katalysator2view.h,katalysator2/katalysator2ui.rc,katalysator2/katalysator2.desktop,katalysator2/lo32-app-katalysator2.png,katalysator2/lo16-app-katalysator2.png,katalysator2/krohr.ui,katalysator2/krohr_impl.cpp,katalysator2/krohr_impl.h,katalysator2/krohr_view.cpp,katalysator2/krohr_view.h,katalysator2/tedelmetall.cpp,katalysator2/tedelmetall.h,katalysator2/tkatbasis.cpp,katalysator2/tkatbasis.h,katalysator2/tkegelschnitt.cpp,katalysator2/tkegelschnitt.h,katalysator2/tkonus.cpp,katalysator2/tkonus.h,katalysator2/tmatrix.cpp,katalysator2/tmatrix.h,katalysator2/trohr.cpp,katalysator2/trohr.h,katalysator2/twerkstoff.cpp,katalysator2/twerkstoff.h,katalysator2/definitions.h,katalysator2/tmetraeger.cpp,katalysator2/tmetraeger.h
+sub_dirs=sql
 type=prog_main
 
 [katalysator2/definitions.h]
@@ -217,6 +217,17 @@ install=false
 install_location=
 type=SOURCE
 
+[katalysator2/sql/Makefile.am]
+files=katalysator2/sql/create_db.sql
+sub_dirs=
+type=normal
+
+[katalysator2/sql/create_db.sql]
+dist=true
+install=false
+install_location=
+type=DATA
+
 [katalysator2/tedelmetall.cpp]
 dist=true
 install=false
@@ -272,6 +283,18 @@ install_location=
 type=SOURCE
 
 [katalysator2/tmatrix.h]
+dist=true
+install=false
+install_location=
+type=HEADER
+
+[katalysator2/tmetraeger.cpp]
+dist=true
+install=false
+install_location=
+type=SOURCE
+
+[katalysator2/tmetraeger.h]
 dist=true
 install=false
 install_location=
