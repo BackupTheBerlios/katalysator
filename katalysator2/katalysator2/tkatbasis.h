@@ -38,11 +38,12 @@ private:
 	QString name;
 	int x;
 	int y; // Standort des Objekts auf dem Bildschirm (notwendig zur Trennung von Doc.- und View-Objekten)
-	static int nummer;
 	
 protected:
-//	static void neu(){nummer++;}
-//	static void geloescht(){nummer--;}
+	static int nummer;
+	static void neu(){nummer++;}
+	static void geloescht(){nummer--;}
+	static int getnummer(){return nummer;}
 public:
 
 	Tkatbasis(treal l=0, treal d=0, treal w=0, QString n="katBasis", int x_=0, int y_=0);

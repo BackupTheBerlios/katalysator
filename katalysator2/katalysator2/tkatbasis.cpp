@@ -21,8 +21,10 @@
 
 #include "tkatbasis.h"
 
+int Tkatbasis::nummer=0;
+
 Tkatbasis::Tkatbasis(treal l, treal d, treal w, QString n, int x_, int y_){
-//	neu();
+	neu();
 	name=n;
 	x=x_;
 	y=y_;
@@ -31,7 +33,7 @@ Tkatbasis::Tkatbasis(treal l, treal d, treal w, QString n, int x_, int y_){
 	wandstaerke=w;
 }
 Tkatbasis::~Tkatbasis(){
-//	geloescht();
+	geloescht();
 }
 treal Tkatbasis::volumen(){
 	return M_PI_4*durchmesser*durchmesser*laenge;
@@ -44,7 +46,10 @@ treal Tkatbasis::querschnitt(){
 void Tkatbasis::speichere(KURL datei){
 	QString dat =datei.path();
 	KSimpleConfig *conf=new KSimpleConfig(dat);
-	conf->setGroup(getname());
+	QString Puffer;
+	Puffer.setNum(getnummer());
+	conf->setGroup(Puffer);
+	conf->writeEntry("name", getname());
 	conf->writeEntry("durchmesser", getdurchmesser());
 	conf->writeEntry("laenge", getlaenge());
 	conf->writeEntry("wandstaerke", getwandstaerke());
