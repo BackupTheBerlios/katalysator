@@ -36,14 +36,15 @@ private:
 	treal durchmesser;
 	treal wandstaerke;
 	QString name;
+	int nummer;
 	int x;
 	int y; // Standort des Objekts auf dem Bildschirm (notwendig zur Trennung von Doc.- und View-Objekten)
 	
 protected:
-	static int nummer;
-	static void neu(){nummer++;}
-	static void geloescht(){nummer--;}
-	static int getnummer(){return nummer;}
+	static int knummer;
+	static void neu(){knummer++;}
+	static void geloescht(){knummer--;}
+	static int getknummer(){return knummer;}
 public:
 
 	Tkatbasis(treal l=0, treal d=0, treal w=0, QString n="katBasis", int x_=0, int y_=0);
@@ -59,6 +60,7 @@ public:
 	treal getlaenge(void) { return laenge;}
 	treal getdurchmesser(void) {return durchmesser;}
 	treal getwandstaerke(void) {return wandstaerke;}
+	int getnummer() {return nummer;}
 	QString getname(void) {return name;}
 	int get_x(void) {return x;}
 	int get_y(void) {return y;}

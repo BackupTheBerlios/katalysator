@@ -1,5 +1,5 @@
 # Generated automatically from Makefile.in by config.pl.
-# KDE tags expanded automatically by am_edit - $Revision: 1.1 $ 
+# KDE tags expanded automatically by am_edit - $Revision: 1.2 $ 
 # Makefile.in generated automatically by automake 1.4 from Makefile.am
 
 # Copyright (C) 1994, 1995-8, 1999 Free Software Foundation, Inc.
@@ -20,7 +20,7 @@ SHELL = /bin/sh
 srcdir = .
 top_srcdir = ..
 VPATH = .
-prefix = /opt/kde2
+prefix = /opt/kde
 exec_prefix = ${prefix}
 #>- 
 bindir = ${exec_prefix}/bin
@@ -142,9 +142,9 @@ MAKEINFO = makeinfo
 MCOPIDL = /opt/kde2/bin/mcopidl
 MICO_INCLUDES = @MICO_INCLUDES@
 MICO_LDFLAGS = @MICO_LDFLAGS@
-MOC = /usr/lib/qt-2.3.0/bin/moc
+MOC = /usr/lib/qt2//bin/moc
 MSGFMT = /usr/bin/msgfmt
-NOOPT_CXXFLAGS =  -fno-exceptions -fno-check-new -Wall -pedantic -W -Wpointer-arith -Wmissing-prototypes -Wwrite-strings -Wno-long-long -Wnon-virtual-dtor -fno-builtin -g3 -Wall -g3
+NOOPT_CXXFLAGS =  -fno-exceptions -fno-check-new -Wall -pedantic -W -Wpointer-arith -Wmissing-prototypes -Wwrite-strings -Wno-long-long -Wnon-virtual-dtor -fno-builtin
 NOREPO = -fno-repo
 OBJDUMP = @OBJDUMP@
 OBJEXT = o
@@ -155,13 +155,13 @@ PAMLIBS = @PAMLIBS@
 PYTHONINC = @PYTHONINC@
 PYTHONLIB = @PYTHONLIB@
 PYTHONMODDIR = @PYTHONMODDIR@
-QT_INCLUDES = -I/usr/lib/qt-2.3.0/include
-QT_LDFLAGS = -L/usr/lib/qt-2.3.0/lib
+QT_INCLUDES = -I/usr/lib/qt2//include
+QT_LDFLAGS = -L/usr/lib/qt2//lib
 RANLIB = ranlib
 REPO = -frepo
 STRIP = strip
 TOPSUBDIRS =  doc katalysator2 po
-UIC = /usr/lib/qt-2.3.0/bin/uic
+UIC = /usr/lib/qt2//bin/uic
 USER_INCLUDES = 
 USER_LDFLAGS = 
 USE_EXCEPTIONS = -fexceptions
@@ -175,8 +175,8 @@ X_EXTRA_LIBS =
 X_INCLUDES = -I/usr/X11R6/include
 X_LDFLAGS = -L/usr/X11R6/lib
 X_PRE_LIBS = 
-all_includes = -I/opt/kde2/include -I/usr/lib/qt-2.3.0/include -I/usr/X11R6/include 
-all_libraries = -L/usr/X11R6/lib -L/usr/lib/qt-2.3.0/lib -L/opt/kde2/lib 
+all_includes = -I/opt/kde2/include -I/usr/lib/qt2//include -I/usr/X11R6/include 
+all_libraries = -L/usr/X11R6/lib -L/usr/lib/qt2//lib -L/opt/kde2/lib 
 idldir = @idldir@
 kde_appsdir = ${prefix}/share/applnk
 kde_bindir = ${exec_prefix}/bin
@@ -197,8 +197,8 @@ kde_sounddir = ${prefix}/share/sounds
 kde_templatesdir = ${prefix}/share/templates
 kde_wallpaperdir = ${prefix}/share/wallpapers
 micodir = @micodir@
-qt_includes = /usr/lib/qt-2.3.0/include
-qt_libraries = /usr/lib/qt-2.3.0/lib
+qt_includes = /usr/lib/qt2//include
+qt_libraries = /usr/lib/qt2//lib
 x_includes = /usr/X11R6/include
 x_libraries = /usr/X11R6/lib
 

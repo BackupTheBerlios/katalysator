@@ -21,10 +21,11 @@
 
 #include "tkatbasis.h"
 
-int Tkatbasis::nummer=0;
+int Tkatbasis::knummer=0;
 
 Tkatbasis::Tkatbasis(treal l, treal d, treal w, QString n, int x_, int y_){
 	neu();
+	nummer=getknummer();
 	name=n;
 	x=x_;
 	y=y_;

@@ -144,6 +144,7 @@ bool Katalysator2Doc::newDocument()
 {
   /////////////////////////////////////////////////
   // TODO: Add your document initialization code here
+  Werte.clear();
   /////////////////////////////////////////////////
   modified=false;
   doc_url.setFileName(i18n("Untitled"));
@@ -189,6 +190,7 @@ void Katalysator2Doc::deleteContents()
 {
   /////////////////////////////////////////////////
   // TODO: Add implementation to delete the document contents
+  Werte.clear();
   /////////////////////////////////////////////////
 
 }

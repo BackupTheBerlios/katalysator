@@ -25,6 +25,12 @@
 // include files for Qt
 #include <qwidget.h>
 
+// include files from local project
+#include <krohr_view.h>
+
+//includes from Standard Library
+#include <qlist.h>
+
 // self defined headers
 #include <trohr.h>
 
@@ -58,9 +64,14 @@ class Katalysator2View : public QWidget
     void print(QPrinter *pPrinter);
   /** Creates a new View of KRohr */
   void NewPipe(Trohr * r1);
+//  void clear_objekte(void) {objekte.clear();}
 	
   private:
+  QList<QWidget> *objekte;
 	
+public slots: // Public slots
+  /** Clears the window */
+  void clear_screan(void);
 };
 
 #endif // KATALYSATOR2VIEW_H

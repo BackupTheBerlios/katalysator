@@ -22,7 +22,7 @@ ac_cv_func_res_init=${ac_cv_func_res_init=no}
 ac_cv_func_shmat=${ac_cv_func_shmat=yes}
 ac_cv_have_dlfcn=${ac_cv_have_dlfcn=yes}
 ac_cv_have_kde=${ac_cv_have_kde=$'have_kde=yes     ac_kde_includes=/opt/kde2/include ac_kde_libraries=/opt/kde2/lib'}
-ac_cv_have_qt=${ac_cv_have_qt=$'have_qt=yes     ac_qt_includes=/usr/lib/qt-2.3.0/include ac_qt_libraries=/usr/lib/qt-2.3.0/lib'}
+ac_cv_have_qt=${ac_cv_have_qt=$'have_qt=yes     ac_qt_includes=/usr/lib/qt2//include ac_qt_libraries=/usr/lib/qt2//lib'}
 ac_cv_header_dlfcn_h=${ac_cv_header_dlfcn_h=yes}
 ac_cv_ksize_t=${ac_cv_ksize_t=socklen_t}
 ac_cv_lib_ICE_IceConnectionNumber=${ac_cv_lib_ICE_IceConnectionNumber=yes}
@@ -79,8 +79,8 @@ kde_cv_path_dcopidl2cpp=${kde_cv_path_dcopidl2cpp=/opt/kde2/bin/dcopidl2cpp}
 kde_cv_path_kdb2html=${kde_cv_path_kdb2html=/opt/kde2/bin/kdb2html}
 kde_cv_path_kde_config=${kde_cv_path_kde_config=/opt/kde2/bin/kde-config}
 kde_cv_path_mcopidl=${kde_cv_path_mcopidl=/opt/kde2/bin/mcopidl}
-kde_cv_path_moc=${kde_cv_path_moc=/usr/lib/qt-2.3.0/bin/moc}
-kde_cv_path_uic=${kde_cv_path_uic=/usr/lib/qt-2.3.0/bin/uic}
+kde_cv_path_moc=${kde_cv_path_moc=/usr/lib/qt2//bin/moc}
+kde_cv_path_uic=${kde_cv_path_uic=/usr/lib/qt2//bin/uic}
 kde_cv_prog_cxx_Wno_long_long=${kde_cv_prog_cxx_Wno_long_long=yes}
 kde_cv_prog_cxx_Wnon_virtual_dtor=${kde_cv_prog_cxx_Wnon_virtual_dtor=yes}
 kde_cv_prog_cxx_fexceptions=${kde_cv_prog_cxx_fexceptions=yes}

@@ -53,6 +53,11 @@ void Katalysator2View::print(QPrinter *pPrinter)
 /** Creates a new View of KRohr */
 void Katalysator2View::NewPipe(Trohr * r1){
   KRohr_View * r = new KRohr_View(r1,this);
+  objekte->append(r);
   r->show();
 	
+}
+/** Clears the window */
+void Katalysator2View::clear_screan(void){
+	objekte->clear();
 }
