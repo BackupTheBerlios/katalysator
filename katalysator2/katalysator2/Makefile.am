@@ -5,7 +5,7 @@ katalysator2_LDADD   =  $(LIB_KFILE) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIB
 
 SUBDIRS = sql 
 
-EXTRA_DIST = main.cpp katalysator2.cpp katalysator2.h katalysator2doc.cpp katalysator2doc.h katalysator2view.cpp katalysator2view.h katalysator2ui.rc katalysator2.desktop lo32-app-katalysator2.png lo16-app-katalysator2.png krohr.ui krohr_impl.cpp krohr_impl.h krohr_view.cpp krohr_view.h tedelmetall.cpp tedelmetall.h tkatbasis.cpp tkatbasis.h tkegelschnitt.cpp tkegelschnitt.h tkonus.cpp tkonus.h tmatrix.cpp tmatrix.h trohr.cpp trohr.h twerkstoff.cpp twerkstoff.h definitions.h tmetraeger.cpp tmetraeger.h 
+EXTRA_DIST = main.cpp katalysator2.cpp katalysator2.h katalysator2doc.cpp katalysator2doc.h katalysator2view.cpp katalysator2view.h katalysator2ui.rc katalysator2.desktop lo32-app-katalysator2.png lo16-app-katalysator2.png krohr.ui krohr_impl.cpp krohr_impl.h krohr_view.cpp krohr_view.h tedelmetall.cpp tedelmetall.h tkatbasis.cpp tkatbasis.h tkegelschnitt.cpp tkegelschnitt.h tkonus.cpp tkonus.h tmatrix.cpp tmatrix.h trohr.cpp trohr.h twerkstoff.cpp twerkstoff.h definitions.h tmetraeger.cpp tmetraeger.h minimal.kat 
 
 install-data-local:
 	$(mkinstalldirs) $(kde_appsdir)/Applications/

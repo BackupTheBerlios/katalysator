@@ -52,24 +52,11 @@ Katalysator2Doc::Katalysator2Doc(QWidget *parent, const char *name) : QObject(pa
   }
 
   pViewList->setAutoDelete(true);
- 	lvConn=new PgDatabase("dbname=katalysator");
- 	if(lvConn->ConnectionBad())
- 		{
- 			QString message=i18n("PostgreSQL returns the following error:\n");
- 			message +=lvConn->ErrorMessage();
- 			KMessageBox::error(0,message,i18n("Database Error"));
- 		}
- 			
-	doc=new QDomDocument("katalysator");
-	QString kat_content("<katalysator> \n </katalysator>");
-	doc->setContent(kat_content);
-
 }
 
 Katalysator2Doc::~Katalysator2Doc()
 {
-	delete lvConn;
-	delete doc;
+	if(doc!=0) deleteContents();
 }
 
 void Katalysator2Doc::addView(Katalysator2View *view)
@@ -100,7 +87,6 @@ void Katalysator2Doc::slotUpdateAllViews(Katalysator2View *sender)
     {
       if(w!=sender)
         w->repaint();
-        w->paintEvent(0);
     }
   }
 
@@ -160,8 +146,18 @@ bool Katalysator2Doc::newDocument()
 {
   /////////////////////////////////////////////////
   // TODO: Add your document initialization code here
-	
 	doc=new QDomDocument("katalysator");
+	QFile f( "minimal.kat" );
+  if ( !f.open( IO_ReadOnly ) )
+      return;
+  if ( !doc->setContent( &f ) ) {
+      f.close();
+      return;
+  }
+  f.close();
+  QDomElement docElem = doc->documentElement();
+  cout << "New Document:"<<docElem.tagName() << endl;
+
   /////////////////////////////////////////////////
   modified=false;
   doc_url.setFileName(i18n("Untitled"));
@@ -190,7 +186,9 @@ bool Katalysator2Doc::openDocument(const KURL& url, const char *format /*=0*/)
       return false;
   }
   f.close();
-	
+  QDomElement docElem = doc->documentElement();
+  cout << "New Document:"<<docElem.tagName() << endl;
+
   /////////////////////////////////////////////////
 
   KIO::NetAccess::removeTempFile( tmpfile );
@@ -201,6 +199,9 @@ bool Katalysator2Doc::openDocument(const KURL& url, const char *format /*=0*/)
 
 bool Katalysator2Doc::saveDocument(const KURL& url, const char *format /*=0*/)
 {
+  QDomElement docElem = doc->documentElement();
+  cout << "Dokument-Element beim Speichern:" << docElem.tagName() << endl;
+
   /////////////////////////////////////////////////
   // TODO: Add your document saving code here
   QString tmpfile=url.path();
@@ -244,7 +245,11 @@ void Katalysator2Doc::deleteContents()
 {
   /////////////////////////////////////////////////
   // TODO: Add implementation to delete the document contents
-	delete doc;
+	cout<<"delete contents"<<endl;
+	if (doc!=0){
+		delete doc;
+		doc=0;
+	}
 
   /////////////////////////////////////////////////
 
@@ -258,7 +263,13 @@ Trohr * Katalysator2Doc::NewPipe(){
   QDomElement docElem = doc->documentElement();
   QDomElement elem = doc->createElement( "pipe" );
   elem.setAttribute( "diameter", r->getdurchmesser() );
+	elem.setAttribute( "length",   r->getlaenge() );
+	elem.setAttribute( "wall_thickness" , r->getwandstaerke() );
+	elem.setAttribute( "x", r->get_x() );
+	elem.setAttribute( "y", r->get_y() );
+	elem.setAttribute( "name", r->getname() );
   docElem.appendChild( elem );
+
 
 	modified=true;
 	return r;
@@ -270,4 +281,9 @@ Trohr * Katalysator2Doc::NewPipe(){
 /** Gibt eine Referenz auf die verwendeten Rohre, Kats zurück */
 TWerte & Katalysator2Doc::getWerte(void){
 	return Werte;
+}
+/** returns a pointer to the basic XML or DOM-Document
+to be interpreted and changed in the view-class */
+QDomDocument* Katalysator2Doc::getDocument(void){
+	return doc;
 }

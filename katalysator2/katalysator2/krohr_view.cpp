@@ -17,6 +17,7 @@
 
 #include "krohr_view.h"
 #include "katalysator2.h"
+#include "katalysator2view.h"
 #include <kaction.h>
 #include <math.h>
 
@@ -42,8 +43,15 @@ KRohr_View::KRohr_View(QWidget *parent, const char *name ) : QWidget(parent,name
 	kontextAction->plug(popup);
 }
 
-KRohr_View::KRohr_View(Trohr* r, QWidget *parent, const char *name ) : QWidget(parent,name) {
-	rohr=r;
+KRohr_View::KRohr_View(QDomElement & r, QWidget *parent, const char *name ) : QWidget(parent,name) {
+//	rohr.set_x(r.attribute("X");
+	rohr = new Trohr;
+	dom_pipe=r;
+	rohr->set_x(dom_pipe.attribute("X").toInt());
+	rohr->set_y(dom_pipe.attribute("Y").toInt());
+	rohr->setdurchmesser(dom_pipe.attribute("diameter").toDouble());
+	rohr->setlaenge(dom_pipe.attribute("lenght").toDouble());
+	rohr->setwandstaerke(dom_pipe.attribute("wall_thickness").toDouble());
 	delete_rohr=false;
 	kontext=new KRohr_Impl(rohr);
   connect(kontext->buttonApply, SIGNAL(clicked()), SLOT(PaintEvent()));
@@ -75,8 +83,8 @@ void KRohr_View::paintEvent(QPaintEvent *ev)
 {
 	int dx=int(rohr->getlaenge()*1000);
 	int dy=int(rohr->getdurchmesser()*1000);
-	if (dx==0) dx=10;
-	if (dy==0) dy=10;
+	if (dx<=10) dx=10;
+	if (dy<=10) dy=10;
 	setGeometry(get_x(),get_y(),dx,dy);
 
 	QPainter p(this);
@@ -158,4 +166,17 @@ void KRohr_View::set_y(int value){
 /** returns the y-value of the upper-left edge of the rectangle */
 int KRohr_View::get_y(void){
 	return rohr->get_y();
+}
+/** Returns the name of this Instance of KRohr_View */
+QString KRohr_View::getName(void){
+	return rohr->getname();
+}
+void KRohr_View::PaintEvent()
+{
+	QObject* mama=parent();
+	((Katalysator2View *)mama)->SlotUpdateDocument();
+	paintEvent(0);
+}/** Returns a pointer of the data-object Trohr */
+Trohr* KRohr_View::getTrohr(void){
+	return rohr;
 }

@@ -29,7 +29,7 @@
 #include <krohr_view.h>
 
 //includes from Standard Library
-#include <qlist.h>
+#include <qobjectlist.h>
 
 // self defined headers
 #include <trohr.h>
@@ -64,16 +64,18 @@ class Katalysator2View : public QScrollView
     /** contains the implementation for printing functionality */
     void print(QPrinter *pPrinter);
   /** Creates a new View of KRohr */
-  void NewPipe(Trohr * r1);
+  void NewPipe(QDomElement & r1);
 //  void clear_objekte(void) {objekte.clear();}
 	
   private:
-  QList<QWidget> objekte;
+  QObjectList objekte;
 	
 public slots: // Public slots
 
   /** Neu zeichnen der Arbeitsberfläche */
   void paintEvent(QPaintEvent * ev);
+  /** Called if the view has been changed to update the document */
+  void SlotUpdateDocument(void);
 };
 
 #endif // KATALYSATOR2VIEW_H

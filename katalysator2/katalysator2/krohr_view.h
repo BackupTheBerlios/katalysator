@@ -23,6 +23,7 @@
 #include <qevent.h>
 #include <qpainter.h>
 #include <qdatetime.h>
+#include <qdom.h>
 
 #include <kpopupmenu.h>
 
@@ -39,7 +40,7 @@ class KRohr_View : public QWidget  {
    Q_OBJECT
 public: 
 	KRohr_View(QWidget *parent=0, const char *name=0);
-	KRohr_View(Trohr* r, QWidget *parent=0, const char *name=0 );
+	KRohr_View(QDomElement& r, QWidget *parent=0, const char *name=0 );
 	~KRohr_View();
 	  /** Setting the Trohr-object on which we are working with this class to version defined
 outside of this class. */
@@ -53,9 +54,13 @@ outside of this class. */
   void set_x(int value);
   /** Return the x-Value of the upper left edge of the rectangle */
   int get_x(void);
+  /** Returns the name of this Instance of KRohr_View */
+  QString getName(void);
+  /** Returns a pointer of the data-object Trohr */
+  Trohr* getTrohr(void);
 	
 public slots:
-	void PaintEvent(){paintEvent(0);}
+	void PaintEvent();
 protected:
 	void mousePressEvent(QMouseEvent *ev);
 	void mouseMoveEvent(QMouseEvent *ev);
@@ -70,6 +75,7 @@ private:
 	KRohr_Impl *kontext;
 	KPopupMenu *popup;
 	
+	QDomElement dom_pipe;
 	bool delete_rohr;
 	Trohr * rohr;
 };

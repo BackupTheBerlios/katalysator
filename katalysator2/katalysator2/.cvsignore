@@ -1,4 +1,7 @@
+*.moc
+*.moc.cpp
+.libs
 Makefile
 Makefile.in
-*.moc.cpp
-*.moc
+test.kat
+.deps

@@ -95,6 +95,9 @@ class Katalysator2Doc : public QObject
   Trohr * NewPipe();
   /** Gibt eine Referenz auf die verwendeten Rohre, Kats zurück */
   TWerte & getWerte(void);
+  /** returns a pointer to the basic XML or DOM-Document
+to be interpreted and changed in the view-class */
+  QDomDocument* getDocument(void);
 	
   public slots:
     /** calls repaint() on all views connected to the document object and is called by the view by which the document has been changed.

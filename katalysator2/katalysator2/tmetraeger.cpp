@@ -17,7 +17,7 @@
 
 #include "tmetraeger.h"
 
-TMeTraeger::TMeTraeger(){
+TMeTraeger::TMeTraeger(treal l, treal d, treal w, QString n, int x_, int w_){
 }
 
 

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file './krohr.ui'
 **
-** Created: Mon Dec 31 19:48:00 2001
+** Created: Mon Mar 18 16:28:19 2002
 **      by:  The User Interface Compiler (uic)
 **
 ** WARNING! All changes made in this file will be lost!
