@@ -226,8 +226,8 @@ configure:3901: checking for shmat
 configure:3929: gcc -o conftest -O0     conftest.c  1>&5
 configure:3991: checking for res_init
 configure:4019: gcc -o conftest -O0     conftest.c  1>&5
-/tmp/ccwbdXRp.o: In function `main':
-/tmp/ccwbdXRp.o(.text+0x7): undefined reference to `res_init'
+/tmp/cc8vpFGl.o: In function `main':
+/tmp/cc8vpFGl.o(.text+0x7): undefined reference to `res_init'
 collect2: ld returned 1 exit status
 configure: failed program was:
 #line 3996 "configure"
@@ -254,8 +254,8 @@ res_init();
 ; return 0; }
 configure:4037: checking for res_init in -lresolv
 configure:4056: gcc -o conftest -O0     conftest.c -lresolv   1>&5
-/tmp/cc7Qd9Nh.o: In function `main':
-/tmp/cc7Qd9Nh.o(.text+0x7): undefined reference to `res_init'
+/tmp/ccSPGmMH.o: In function `main':
+/tmp/ccSPGmMH.o(.text+0x7): undefined reference to `res_init'
 collect2: ld returned 1 exit status
 configure: failed program was:
 #line 4045 "configure"
