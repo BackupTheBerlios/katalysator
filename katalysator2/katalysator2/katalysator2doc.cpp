@@ -24,6 +24,7 @@
 #include <kmessagebox.h>
 #include <kio/job.h>
 #include <kio/netaccess.h>
+#include <knotifyclient.h>
 
 // application specific includes
 #include "katalysator2doc.h"
@@ -51,10 +52,24 @@ Katalysator2Doc::Katalysator2Doc(QWidget *parent, const char *name) : QObject(pa
   }
 
   pViewList->setAutoDelete(true);
+ 	lvConn=new PgDatabase("dbname=katalysator");
+ 	if(lvConn->ConnectionBad())
+ 		{
+ 			QString message=i18n("PostgreSQL returns the following error:\n");
+ 			message +=lvConn->ErrorMessage();
+ 			KMessageBox::error(0,message,i18n("Database Error"));
+ 		}
+ 			
+	doc=new QDomDocument("katalysator");
+	QString kat_content("<katalysator> \n </katalysator>");
+	doc->setContent(kat_content);
+
 }
 
 Katalysator2Doc::~Katalysator2Doc()
 {
+	delete lvConn;
+	delete doc;
 }
 
 void Katalysator2Doc::addView(Katalysator2View *view)
@@ -85,6 +100,7 @@ void Katalysator2Doc::slotUpdateAllViews(Katalysator2View *sender)
     {
       if(w!=sender)
         w->repaint();
+        w->paintEvent(0);
     }
   }
 
@@ -144,7 +160,8 @@ bool Katalysator2Doc::newDocument()
 {
   /////////////////////////////////////////////////
   // TODO: Add your document initialization code here
-  Werte.clear();
+	
+	doc=new QDomDocument("katalysator");
   /////////////////////////////////////////////////
   modified=false;
   doc_url.setFileName(i18n("Untitled"));
@@ -155,9 +172,25 @@ bool Katalysator2Doc::newDocument()
 bool Katalysator2Doc::openDocument(const KURL& url, const char *format /*=0*/)
 {
   QString tmpfile;
-  KIO::NetAccess::download( url, tmpfile );
+  if (url.isLocalFile())
+  	tmpfile=url.path();
+  else if (!KIO::NetAccess::download( url, tmpfile ))
+  	{
+  		KNotifyClient::event(i18n("File couldn't be downloaded!"));
+  		return false;
+  	}
   /////////////////////////////////////////////////
   // TODO: Add your document opening code here
+	
+  QFile f( tmpfile );
+  if ( !f.open( IO_ReadOnly ) )
+      return false;
+  if ( !doc->setContent( &f ) ) {
+      f.close();
+      return false;
+  }
+  f.close();
+	
   /////////////////////////////////////////////////
 
   KIO::NetAccess::removeTempFile( tmpfile );
@@ -170,6 +203,7 @@ bool Katalysator2Doc::saveDocument(const KURL& url, const char *format /*=0*/)
 {
   /////////////////////////////////////////////////
   // TODO: Add your document saving code here
+  QString tmpfile=url.path();
   Katalysator2App *win=(Katalysator2App *) parent();
 
   if (url.fileName() == i18n("Untitled"))
@@ -178,7 +212,27 @@ bool Katalysator2Doc::saveDocument(const KURL& url, const char *format /*=0*/)
     }
   else
     {
-	  for_each(Werte.begin(), Werte.end(), speichereWerte(url));
+		QFile qfile(tmpfile);
+			if(qfile.open(IO_ReadWrite))
+				{
+				QString buffer=doc->toString();
+				cout<<buffer<<endl;
+				qfile.writeBlock(buffer, buffer.length());
+				qfile.close();
+				}
+			else
+				{
+				QString qerr;
+				qerr.sprintf(i18n("Cannot write to file!"));
+				KNotifyClient::event(qerr);
+				}
+			if(!url.isLocalFile())
+				{
+				if(!KIO::NetAccess::upload(tmpfile, url))
+					{
+					KNotifyClient::event(i18n("Couldn't upload file!"));
+					}
+				}
 	  };
   /////////////////////////////////////////////////
 
@@ -190,7 +244,7 @@ void Katalysator2Doc::deleteContents()
 {
   /////////////////////////////////////////////////
   // TODO: Add implementation to delete the document contents
- Werte.clear();
+	delete doc;
 
   /////////////////////////////////////////////////
 
@@ -198,7 +252,14 @@ void Katalysator2Doc::deleteContents()
 /** Erzeugt ein Neues Objekt vom Typ Trohr und gibt es zurück */
 Trohr * Katalysator2Doc::NewPipe(){
 	Trohr * r =new Trohr;
-	Werte.push_back(r);
+//	Werte.append(r);
+	cout<<"NewPipe"<<endl;
+	
+  QDomElement docElem = doc->documentElement();
+  QDomElement elem = doc->createElement( "pipe" );
+  elem.setAttribute( "diameter", r->getdurchmesser() );
+  docElem.appendChild( elem );
+
 	modified=true;
 	return r;
 }

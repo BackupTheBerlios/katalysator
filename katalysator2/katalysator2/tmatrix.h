@@ -24,7 +24,7 @@
   *@author Holger Stock
   */
 
-class Tmatrix {
+class Tmatrix public Tkatbasis{
 private:
 	treal zelldichte;
 	treal dh;

@@ -15,18 +15,19 @@
  *                                                                         *
  ***************************************************************************/
 
-// include files for Qt
-#include <qprinter.h>
-#include <qpainter.h>
 
 // application specific includes
-#include "katalysator2view.h"
 #include "katalysator2doc.h"
+#include "katalysator2view.h"
 #include "katalysator2.h"
 #include "krohr_view.h"
 #include <algorithm>
 
-Katalysator2View::Katalysator2View(QWidget *parent, const char *name) : QWidget(parent, name)
+// include files for Qt
+#include <qprinter.h>
+#include <qpainter.h>
+
+Katalysator2View::Katalysator2View(QWidget *parent, const char *name) : QScrollView(parent, name)
 {
   setBackgroundMode(PaletteBase);
 }
@@ -54,23 +55,14 @@ void Katalysator2View::print(QPrinter *pPrinter)
 
 /** Creates a new View of KRohr_View */
 void Katalysator2View::NewPipe(Trohr * r1){
-  KRohr_View * r = new KRohr_View(r1,this);
+  KRohr_View * r = new KRohr_View(r1,viewport());
+  addChild(r);
   objekte.append(r);
   r->show();
 }
 
-/** Clears the window */
-void Katalysator2View::clear_screan(void){
-  QWidget ** it;
-  for(it=objekte.begin(); it!=objekte.end();it++){
-  	delete it;
-  	}
-
-	objekte.clear();
-}
 /** Neu zeichnen der Arbeitsberfläche */
-void Katalysator2View::paintEvent(){
-	clear_screan();
+void Katalysator2View::paintEvent(QPaintEvent *ev){
 	Katalysator2Doc *doc;
 	doc=getDocument();
 	TWerte werte=doc->getWerte();

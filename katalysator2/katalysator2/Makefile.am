@@ -1,10 +1,11 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 bin_PROGRAMS = katalysator2
-katalysator2_SOURCES = twerkstoff.cpp trohr.cpp tmatrix.cpp tkonus.cpp tkegelschnitt.cpp tkatbasis.cpp tedelmetall.cpp krohr_view.cpp krohr_impl.cpp krohr.ui katalysator2view.cpp katalysator2doc.cpp katalysator2.cpp main.cpp 
-katalysator2_LDADD   =  -lkfile -lkdeui -lkdecore $(LIB_QT) $(LIBSOCKET)
+katalysator2_SOURCES = tmetraeger.cpp twerkstoff.cpp trohr.cpp tmatrix.cpp tkonus.cpp tkegelschnitt.cpp tkatbasis.cpp tedelmetall.cpp krohr_view.cpp krohr_impl.cpp krohr.ui katalysator2view.cpp katalysator2doc.cpp katalysator2.cpp main.cpp 
+katalysator2_LDADD   =  $(LIB_KFILE) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT) $(LIBSOCKET)
 
+SUBDIRS = sql 
 
-EXTRA_DIST = main.cpp katalysator2.cpp katalysator2.h katalysator2doc.cpp katalysator2doc.h katalysator2view.cpp katalysator2view.h katalysator2ui.rc katalysator2.desktop lo32-app-katalysator2.png lo16-app-katalysator2.png krohr.ui krohr_impl.cpp krohr_impl.h krohr_view.cpp krohr_view.h tedelmetall.cpp tedelmetall.h tkatbasis.cpp tkatbasis.h tkegelschnitt.cpp tkegelschnitt.h tkonus.cpp tkonus.h tmatrix.cpp tmatrix.h trohr.cpp trohr.h twerkstoff.cpp twerkstoff.h definitions.h 
+EXTRA_DIST = main.cpp katalysator2.cpp katalysator2.h katalysator2doc.cpp katalysator2doc.h katalysator2view.cpp katalysator2view.h katalysator2ui.rc katalysator2.desktop lo32-app-katalysator2.png lo16-app-katalysator2.png krohr.ui krohr_impl.cpp krohr_impl.h krohr_view.cpp krohr_view.h tedelmetall.cpp tedelmetall.h tkatbasis.cpp tkatbasis.h tkegelschnitt.cpp tkegelschnitt.h tkonus.cpp tkonus.h tmatrix.cpp tmatrix.h trohr.cpp trohr.h twerkstoff.cpp twerkstoff.h definitions.h tmetraeger.cpp tmetraeger.h 
 
 install-data-local:
 	$(mkinstalldirs) $(kde_appsdir)/Applications/

@@ -22,10 +22,17 @@
 #include <config.h>
 #endif 
 
+// global C++ headers
+#include <vector.h>
+#include <stdio.h>
+#include <string>
+#include <pgsql/libpq++.h> // Getting data from a PostgreSQL-DBMS
+
 // include files for QT
 #include <qobject.h>
 #include <qstring.h>
 #include <qlist.h>
+#include <qdom.h> // Using XML-DOM as global document
 
 // include files for KDE
 #include <kurl.h>
@@ -33,8 +40,6 @@
 // self defined headers
 #include "trohr.h"
 
-// global C++ headers
-#include <vector.h>
 
 // Typdefinitionen
 
@@ -106,8 +111,11 @@ class Katalysator2Doc : public QObject
     bool modified;
     KURL doc_url;
     TWerte Werte;
+		QDomDocument *doc; // XML-Datei als Globaldokument
+		PgDatabase *lvConn; // Zeiger auf das Datenbank-Objekt
+		
 private: // Private methods
-  /** Speichert den bergebenen Wert ab */
+  /** Speichert den uebergebenen Wert ab */
   void speichere_Werte(Tkatbasis * in);
 };
 

@@ -11,13 +11,13 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>500</width>
+            <width>496</width>
             <height>372</height>
         </rect>
     </property>
     <property stdset="1">
         <name>caption</name>
-        <string>MyDialog1</string>
+        <string>Rohr</string>
     </property>
     <property stdset="1">
         <name>iconText</name>

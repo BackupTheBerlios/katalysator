@@ -52,7 +52,7 @@ Katalysator2App::Katalysator2App(QWidget* , const char* name):KMainWindow(0, nam
 
   ///////////////////////////////////////////////////////////////////
   // disable actions at startup
-//  fileSave->setEnabled(false);
+  fileSave->setEnabled(false);
   fileSaveAs->setEnabled(false);
   filePrint->setEnabled(false);
   editCut->setEnabled(false);
@@ -455,8 +455,11 @@ void Katalysator2App::slotStatusMsg(const QString &text)
 /** Adds a new Pipe to the Document */
 void Katalysator2App::slotNewPipe(void)
 {
-	Trohr * r = doc->NewPipe();
-	view->paintEvent();
+	doc->NewPipe();
+	doc->slotUpdateAllViews(0);
+  fileSave->setEnabled(true);
+  fileSaveAs->setEnabled(true);
+
 }
 
 /** To configure the Toolbars */

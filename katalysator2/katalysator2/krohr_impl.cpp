@@ -57,13 +57,13 @@ void KRohr_Impl::set_values_from_trohr()
 {
 	QString wert;
 	
-	wert.setNum(rohr->getdurchmesser());
+	wert.setNum(rohr->getdurchmesser()*1E3);
 	diameter_mm->setText(wert);
 
-	wert.setNum(rohr->getlaenge());
+	wert.setNum(rohr->getlaenge()*1E3);
 	lenght_mm->setText(wert);
 	
-	wert.setNum(rohr->getwandstaerke());
+	wert.setNum(rohr->getwandstaerke()*1E3);
 	thickness_mm->setText(wert);
 	
 	wert.setNum(rohr->getlambda());

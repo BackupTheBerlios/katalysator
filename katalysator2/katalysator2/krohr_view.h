@@ -24,6 +24,8 @@
 #include <qpainter.h>
 #include <qdatetime.h>
 
+#include <kpopupmenu.h>
+
 #include "trohr.h"
 #include "krohr_impl.h"
 
@@ -66,6 +68,7 @@ private:
 	QTime timer;
 	QPoint startPoint;
 	KRohr_Impl *kontext;
+	KPopupMenu *popup;
 	
 	bool delete_rohr;
 	Trohr * rohr;

@@ -16,6 +16,8 @@
  ***************************************************************************/
 
 #include "krohr_view.h"
+#include "katalysator2.h"
+#include <kaction.h>
 #include <math.h>
 
 KRohr_View::KRohr_View(QWidget *parent, const char *name ) : QWidget(parent,name) {
@@ -24,7 +26,20 @@ KRohr_View::KRohr_View(QWidget *parent, const char *name ) : QWidget(parent,name
 	kontext=new KRohr_Impl(rohr);
   connect(kontext->buttonApply, SIGNAL(clicked()), SLOT(PaintEvent()));
   connect(kontext->buttonOk, SIGNAL(clicked()), SLOT(PaintEvent()));
-//	kontext->show();
+  popup=new KPopupMenu(this);
+	popup->insertTitle(i18n("Pipe"));
+	KAction *clearAction=new KAction(i18n("&Clear"),
+	                     "remove",
+	                     Qt::CTRL+Qt::Key_X,
+	                     this, SLOT(hide()),
+	                     this);
+	clearAction->plug(popup);
+	KAction *kontextAction=new KAction(i18n("&Settings"),
+											"toggle_log",
+											Qt::CTRL+Qt::Key_S,
+											kontext, SLOT(show()),
+											this);
+	kontextAction->plug(popup);
 }
 
 KRohr_View::KRohr_View(Trohr* r, QWidget *parent, const char *name ) : QWidget(parent,name) {
@@ -33,11 +48,27 @@ KRohr_View::KRohr_View(Trohr* r, QWidget *parent, const char *name ) : QWidget(p
 	kontext=new KRohr_Impl(rohr);
   connect(kontext->buttonApply, SIGNAL(clicked()), SLOT(PaintEvent()));
   connect(kontext->buttonOk, SIGNAL(clicked()), SLOT(PaintEvent()));
-//	kontext->show();
+  popup=new KPopupMenu(this);
+//  Katalysator2App *theApp=(Katalysator2App *) parent->parentWidget();
+	popup->insertTitle(i18n("Pipe"));
+	KAction *clearAction=new KAction(i18n("&Clear"),
+	                     "remove",
+	                     Qt::CTRL+Qt::Key_X,
+	                     this, SLOT(hide()),
+	                     this);
+	clearAction->plug(popup);
+	KAction *kontextAction=new KAction(i18n("&Settings"),
+											"toggle_log",
+											Qt::CTRL+Qt::Key_S,
+											kontext, SLOT(show()),
+											this);
+	kontextAction->plug(popup);
 }
 
 KRohr_View::~KRohr_View(){
-if (delete_rohr) delete rohr;
+	if (delete_rohr) delete rohr;
+	delete kontext;
+	delete popup;
 }
 
 void KRohr_View::paintEvent(QPaintEvent *ev)
@@ -77,7 +108,7 @@ void KRohr_View::mousePressEvent(QMouseEvent *ev)
 	if(leftDown) return;
 
 	if(ev->button()==RightButton)
-		kontext->show();
+		popup->show();
 		
 	else if (ev->button()==LeftButton){
 		leftDown=true;

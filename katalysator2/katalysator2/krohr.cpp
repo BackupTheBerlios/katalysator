@@ -2,7 +2,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file './krohr.ui'
 **
-** Created: Sat Jul 28 13:18:15 2001
+** Created: Mon Dec 31 19:52:53 2001
 **      by:  The User Interface Compiler (uic)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -33,8 +33,8 @@ KRohr::KRohr( QWidget* parent,  const char* name, bool modal, WFlags fl )
 {
     if ( !name )
 	setName( "KRohr" );
-    resize( 500, 372 ); 
-    setCaption( i18n( "MyDialog1" ) );
+    resize( 496, 372 ); 
+    setCaption( i18n( "Rohr" ) );
     setIconText( QString::null );
     setSizeGripEnabled( TRUE );
     KRohrLayout = new QVBoxLayout( this ); 

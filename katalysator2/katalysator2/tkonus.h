@@ -34,7 +34,6 @@ public:
 	virtual treal masse(void);
 	virtual treal preis(void);
 	virtual treal WKap(void);
-	
 };
 
 #endif
