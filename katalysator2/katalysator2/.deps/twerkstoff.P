@@ -1,0 +1,4 @@
+twerkstoff.o: twerkstoff.cpp twerkstoff.h definitions.h
+twerkstoff.cpp :
+twerkstoff.h :
+definitions.h :

@@ -1,0 +1,43 @@
+tmatrix.o: tmatrix.cpp tmatrix.h tkatbasis.h definitions.h \
+ /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h \
+ /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+ /usr/lib/qt-2.3.0/include/qstring.h \
+ /usr/lib/qt-2.3.0/include/qcstring.h \
+ /usr/lib/qt-2.3.0/include/qarray.h \
+ /usr/lib/qt-2.3.0/include/qgarray.h \
+ /usr/lib/qt-2.3.0/include/qshared.h \
+ /usr/lib/qt-2.3.0/include/qglobal.h \
+ /usr/lib/qt-2.3.0/include/qfeatures.h \
+ /usr/lib/qt-2.3.0/include/qconfig.h /usr/include/strings.h \
+ /usr/lib/gcc-lib/i486-suse-linux/2.95.3/include/stddef.h \
+ /usr/include/string.h /opt/kde2/include/kurl.h \
+ /usr/lib/qt-2.3.0/include/qvaluelist.h \
+ /usr/lib/qt-2.3.0/include/qdatastream.h \
+ /usr/lib/qt-2.3.0/include/qiodevice.h
+tmatrix.cpp :
+tmatrix.h :
+tkatbasis.h :
+definitions.h :
+/usr/include/math.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :
+/usr/include/bits/huge_val.h :
+/usr/include/bits/mathdef.h :
+/usr/include/bits/mathcalls.h :
+/usr/lib/qt-2.3.0/include/qstring.h :
+/usr/lib/qt-2.3.0/include/qcstring.h :
+/usr/lib/qt-2.3.0/include/qarray.h :
+/usr/lib/qt-2.3.0/include/qgarray.h :
+/usr/lib/qt-2.3.0/include/qshared.h :
+/usr/lib/qt-2.3.0/include/qglobal.h :
+/usr/lib/qt-2.3.0/include/qfeatures.h :
+/usr/lib/qt-2.3.0/include/qconfig.h :
+/usr/include/strings.h :
+/usr/lib/gcc-lib/i486-suse-linux/2.95.3/include/stddef.h :
+/usr/include/string.h :
+/opt/kde2/include/kurl.h :
+/usr/lib/qt-2.3.0/include/qvaluelist.h :
+/usr/lib/qt-2.3.0/include/qdatastream.h :
+/usr/lib/qt-2.3.0/include/qiodevice.h :
